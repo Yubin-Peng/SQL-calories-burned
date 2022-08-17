@@ -1,0 +1,16 @@
+SELECT  
+	Id, 
+	Calories,  
+	ActivityTime,  
+	extract(hour from ActivityTime) as ActivityHour,  
+	extract(DAYOFWEEK from ActivityTime)as ActivityDay,  
+	case extract(DAYOFWEEK from ActivityTime)  
+		when 1 then 'Monday'  
+		when 2 then 'Tuesday'  
+		when 3 then 'Wednesday'  
+		when 4 then 'Thursday' 
+		when 5 then 'Friday' 
+		when 6 then 'Saturday' 
+		else 'Sunday' end as WeekDay, 
+
+from `bellabeat-334922.fitabase_data_041216_to_051216.hourlyCalories_12162021_splittedtime`
